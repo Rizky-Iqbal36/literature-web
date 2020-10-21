@@ -1,13 +1,15 @@
-import React, { useContext, useState } from 'react'
-import {Modal,Button} from "react-bootstrap";
-import {useMutation} from "react-query"
-import {Context} from "../context/Context";
-import {API} from "../config/api";
+import React, { useContext, useState } from "react";
+import { Modal, Button } from "react-bootstrap";
+import { useMutation } from "react-query";
+import { Context } from "../context/Context";
+import { API } from "../config/api";
+import { useHistory } from "react-router-dom";
 const Profile_addPP = (props) => {
-    const [state,dispatch] = useContext(Context);
-    const [image,setImage] = useState(null);
+  const [state, dispatch] = useContext(Context);
+  const [image, setImage] = useState(null);
 
-    const [updatePP] = useMutation(async () => {
+  const history = useHistory();
+  const [updatePP] = useMutation(async () => {
     try {
       const config = {
         headers: {
@@ -19,7 +21,6 @@ const Profile_addPP = (props) => {
 
       const res = await API.patch(`/users/${state.user.id}`, formData, config);
 
-      console.log(res.data.data.user);
       dispatch({
         type: "UPDATE_PP_SUCCESS",
         payload: res.data.data.user,
@@ -28,7 +29,7 @@ const Profile_addPP = (props) => {
       console.log(err.message);
     }
   });
-    return (
+  return (
     <Modal
       {...props}
       size="md"
@@ -40,39 +41,38 @@ const Profile_addPP = (props) => {
           Change Photo Profile
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>        
+      <Modal.Body>
         <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              updatePP();
-            }}
-          >
-            <div className="form-group">
-              <div className="custom-file">
-                <input
-                  type="file"
-                  onChange={(e) => {
-                    setImage(e.target.files[0]);
-                  }}
-                  id="image"
-                />
-              </div>
+          onSubmit={(e) => {
+            e.preventDefault();
+            updatePP();
+          }}
+        >
+          <div className="form-group">
+            <div className="custom-file">
+              <input
+                type="file"
+                onChange={(e) => {
+                  setImage(e.target.files[0]);
+                }}
+                id="image"
+              />
             </div>
-            <Button
-              variant="none"
-              type="submit"
-              style={{backgroundColor:"#EE4622",color: "white"}}
-              >Submit
-            </Button>
-          </form>
+          </div>
+          <Button
+            variant="none"
+            type="submit"
+            style={{ backgroundColor: "#EE4622", color: "white" }}
+          >
+            Submit
+          </Button>
+        </form>
       </Modal.Body>
       <Modal.Footer>
-        <Button
-            onClick={props.onHide}         
-            >Close</Button>
+        <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
-    )
-}
+  );
+};
 
-export default Profile_addPP
+export default Profile_addPP;

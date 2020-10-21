@@ -10,7 +10,7 @@ const Landing = () => {
     const [modalShowsignin, setModalShowsignin] = React.useState(false);
     const [modalShowsignup, setModalShowsignup] = React.useState(false);
     return (
-        <div style={{color:"white", marginTop:"-28px"}}>
+        <div style={{color:"white", marginTop:"-28px",backgroundColor:"#161616"}}>
             <div style={{margin:"28px 0px 0px 78px"}}>
                 <img
                     className="responsive-img"
