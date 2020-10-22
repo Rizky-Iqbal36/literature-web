@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useMutation, useQuery } from "react-query";
 import { API } from "../config/api";
 import NavbarUser from "../components/NavbarUser";
+import AlertModal from "./AlertModal";
 import { BsCloudDownload, BsBookmark } from "react-icons/bs";
 import { urlAsset } from "../config/api";
 import { Context } from "../context/Context";
@@ -14,6 +15,8 @@ const Detail = () => {
   const [literature, setLiterature] = useState([]);
   const [relations, setRelations] = useState([]);
   const [click, setClick] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [show, setShow] = useState("");
   const [FormData, setFormData] = useState({
     UserId: state.user.id,
     LiteratureId: id,
@@ -56,6 +59,7 @@ const Detail = () => {
       const res = await API.delete(`/relation/${id}/${state.user.id}`);
       setLoading(false);
       setClick(true);
+      setShow("remove");
     } catch (err) {
       setLoading(false);
       console.log(err);
@@ -74,6 +78,7 @@ const Detail = () => {
       const res = await API.post("/relation", body, config);
       setLoading(false);
       setClick(true);
+      setShow("add");
     } catch (err) {
       setLoading(false);
       console.log(err);
@@ -82,8 +87,6 @@ const Detail = () => {
   const isBookmark = relations.filter(
     (item) => item.UserId == state.user.id && item.LiteratureId == id
   );
-  console.log("ini bookmark ==> ");
-  console.log(isBookmark);
   return (
     <div style={{ backgroundColor: "#161616" }}>
       {loading || !literature ? (
@@ -139,7 +142,7 @@ const Detail = () => {
                       Publication Date
                     </div>
                     <div style={{ color: "#929292", fontSize: "18px" }}>
-                      {literature.publication}
+                      {literature.month} {literature.year}
                     </div>
                   </div>
                   <div style={{ paddingBottom: "24px", font: "avenir" }}>
@@ -196,6 +199,8 @@ const Detail = () => {
                       }}
                       onClick={() => {
                         add();
+                        setShowAlert(true);
+                        setShow("");
                       }}
                     >
                       Add My Collection
@@ -211,6 +216,8 @@ const Detail = () => {
                       }}
                       onClick={() => {
                         remove();
+                        setShowAlert(true);
+                        setShow("");
                       }}
                     >
                       Remove from My Collection
@@ -221,6 +228,21 @@ const Detail = () => {
               </div>
             </div>
           </div>
+
+          <AlertModal show={showAlert} onHide={() => setShowAlert(false)}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              {show === "remove" ? (
+                <p>
+                  Your literature has been successfully removed from your
+                  collection
+                </p>
+              ) : (
+                <p>
+                  Your literature has been successfully added to your collection
+                </p>
+              )}
+            </div>
+          </AlertModal>
         </div>
       )}
     </div>

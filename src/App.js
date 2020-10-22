@@ -10,8 +10,8 @@ import Landing from "./pages/Landing";
 import HomeAdmin from "./pages/Admin/HomeAdmin";
 import AdminAddLiterature from "./pages/Admin/AdminAddLiterature";
 //users
-import NavbarUser from "./components/NavbarUser";
 import Home from "./pages/User/Home";
+import SearchPage from "./pages/User/SearchPage";
 import Profile from "./pages/User/Profile";
 import AddLiterature from "./pages/User/AddLiterature";
 import MyCollection from "./pages/User/MyCollection";
@@ -57,6 +57,7 @@ function App() {
         />
         <Switch>
           <UserRoute exact path="/Home" component={Home} />
+          <UserRoute exact path="/SearchPage" component={SearchPage} />
           <UserRoute exact path="/Profile" component={Profile} />
           <UserRoute exact path="/MyCollection" component={MyCollection} />
           <UserRoute exact path="/AddLiterature" component={AddLiterature} />

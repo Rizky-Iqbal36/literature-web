@@ -31,7 +31,7 @@ const MyCollection = () => {
           className="container"
           style={{
             color: "white",
-            paddingBottom: "89px",
+            paddingBottom: "90px",
             marginLeft: "78px",
           }}
         >
