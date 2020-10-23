@@ -87,6 +87,7 @@ const Detail = () => {
   const isBookmark = relations.filter(
     (item) => item.UserId == state.user.id && item.LiteratureId == id
   );
+  console.log(literature);
   return (
     <div style={{ backgroundColor: "#161616" }}>
       {loading || !literature ? (

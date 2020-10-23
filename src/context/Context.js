@@ -11,27 +11,22 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-     case "UPDATE_PP_SUCCESS":
-      return {
-        ...state,
-        user: action.payload,
-      }
     case "USER_LOADED":
-      return{
+      return {
         ...state,
         isLoginUser: true,
         user: action.payload,
         loading: false,
-      }
+      };
     case "AUTH_ERROR":
     case "LOGIN_FAIL":
-      return{
+      return {
         ...state,
         isLoginUser: false,
         isLoginAdmin: false,
         user: null,
         loading: false,
-      }
+      };
     case "LOGIN_SUCCESS":
       localStorage.setItem("token", action.payload.token);
       return {

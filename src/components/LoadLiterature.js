@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import { API } from "../config/api";
 import { Context } from "../context/Context";
 import { urlAsset } from "../config/api";
+import { Alert } from "react-bootstrap";
+import { AiFillWarning } from "react-icons/ai";
 const LoadLiterature = (props) => {
   const [state, dispatch] = useContext(Context);
   const [literatures, setLiteratures] = useState([]);
@@ -12,15 +14,27 @@ const LoadLiterature = (props) => {
     const loadLiterature = async () => {
       try {
         setLoading(true);
-        if (props.route === "HOME") {
-          const res = await API.get("/literature");
-          setLiteratures(res.data.data.loadLiterature);
-        } else if (props.route === "PROFILE") {
-          const res = await API.get("/literature");
-          setLiteratures(res.data.data.loadLiterature);
-        } else {
+        if (props.selected === "Anytime" || props.route === "PROFILE") {
+          if (props.title) {
+            const res = await API.get(`/filterLiterature/${props.title}`);
+            setLiteratures(res.data.data.filterLiterature);
+          } else {
+            const res = await API.get("/literature");
+            setLiteratures(res.data.data.loadLiterature);
+          }
+        } else if (props.route === "COLLECTION") {
           const res = await API.get(`/user/${state.user.id}`);
           setLiteratures(res.data.data.loadUser.literatures);
+        } else if (props.selected !== "Anytime") {
+          if (!props.title) {
+            const res = await API.get(`/literatures/${props.selected}`);
+            setLiteratures(res.data.data.filterLiterature);
+          } else {
+            const res = await API.get(
+              `/searchLiterature/${props.title}/${props.selected}`
+            );
+            setLiteratures(res.data.data.literatures);
+          }
         }
         setLoading(false);
       } catch (err) {
@@ -29,17 +43,40 @@ const LoadLiterature = (props) => {
       }
     };
     loadLiterature();
-  }, []);
+  }, [props.selected, props.title]);
 
-  console.log(literatures);
   const founded = literatures.find((item) => item.uploadBy === state.user.id);
   return loading || !literatures ? (
     <h1>Loading...</h1>
+  ) : literatures.length === 0 ? (
+    <div
+      style={{
+        marginTop: "80px",
+        marginLeft: props.route === "PROFILE" ? "150px" : "72px",
+        textAlign: "center",
+        fontSize: "50px",
+        font: "avenir",
+      }}
+    >
+      <Alert variant="warning">
+        {props.route === "PROFILE" ? (
+          <p>
+            <AiFillWarning style={{ marginTop: "-10px" }} />
+            YOU DON'T HAVE ANY LITERATURE
+          </p>
+        ) : (
+          <p>
+            <AiFillWarning style={{ marginTop: "-10px" }} />
+            THER IS NO LITERATURE IN HERE
+          </p>
+        )}
+      </Alert>
+    </div>
   ) : (
     <div>
       <div className="row" style={{ color: "white" }}>
         {props.route !== "PROFILE" ? (
-          literatures.map((item) => {
+          literatures.map((item, index) => {
             if (item.status === "Approved") {
               return (
                 <div
@@ -50,7 +87,7 @@ const LoadLiterature = (props) => {
                     maxWidth: 230,
                     marginTop: "85px",
                     borderRadius: "10px",
-                    marginRight: "40px",
+                    marginRight: (index + 1) % 4 === 0 ? "0px" : "25px",
                   }}
                 >
                   <div className="container-fluid">
@@ -60,8 +97,8 @@ const LoadLiterature = (props) => {
                       width="200"
                       height="270"
                       style={{
-                        marginLeft: "-15px",
                         borderRadius: "10px",
+                        marginLeft: "-15px",
                       }}
                     />
                   </div>
@@ -206,7 +243,19 @@ const LoadLiterature = (props) => {
             }
           })
         ) : (
-          <h1>YOU DON'T HAVE ANY LITERATURE</h1>
+          <div
+            style={{
+              textAlign: "center",
+              fontSize: "45px",
+              font: "avenir",
+              marginLeft: "270px",
+            }}
+          >
+            <Alert variant="warning">
+              <AiFillWarning style={{ marginTop: "-10px" }} />
+              YOU DON'T HAVE ANY LITERATURE
+            </Alert>
+          </div>
         )}
       </div>
     </div>

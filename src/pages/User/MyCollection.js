@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Alert } from "react-bootstrap";
 import LoadLiterature from "../../components/LoadLiterature";
 import { Context } from "../../context/Context";
 import { API } from "../../config/api";
 import NavbarUser from "../../components/NavbarUser";
+import { AiFillWarning } from "react-icons/ai";
 const MyCollection = () => {
   const [state, dispatch] = useContext(Context);
   const [loading, setLoading] = useState(true);
@@ -52,8 +54,18 @@ const MyCollection = () => {
               <LoadLiterature route="COLLECTION" />
             </div>
           ) : (
-            <div style={{ margin: "45px 0px 275px -15px" }}>
-              <h1>YOU DON'T HAVE ANY COLLECTION</h1>
+            <div
+              style={{
+                textAlign: "center",
+                fontSize: "45px",
+                font: "avenir",
+                margin: "45px 0px 275px -15px",
+              }}
+            >
+              <Alert variant="warning">
+                <AiFillWarning style={{ marginTop: "-10px" }} />
+                YOU DON'T HAVE ANY COLLECTION
+              </Alert>
             </div>
           )}
         </div>
