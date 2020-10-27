@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import NavbarUser from "../../components/NavbarUser";
 import Icon from "../../asset/Vector.png";
 const Home = () => {
+  const [isSearch, setIsSearch] = useState("");
   const history = useHistory();
+
+  console.log(isSearch);
   return (
     <div style={{ color: "white", backgroundColor: "#161616" }}>
       <NavbarUser />
@@ -27,7 +30,10 @@ const Home = () => {
           />
         </div>
         <div style={{ marginLeft: "-40px" }}>
-          <Form style={{ display: "flex", flexDirection: "row" }}>
+          <Form
+            style={{ display: "flex", flexDirection: "row" }}
+            onSubmit={(e) => e.preventDefault()}
+          >
             <Form.Group>
               <Form.Control
                 type="text"
@@ -41,6 +47,7 @@ const Home = () => {
                   borderWidth: "2px",
                   borderRadius: "5px",
                 }}
+                onChange={(e) => setIsSearch(e.target.value)}
               />
             </Form.Group>
             <Button
@@ -49,7 +56,14 @@ const Home = () => {
                 height: "50px",
                 marginLeft: "12px",
               }}
-              onClick={() => history.push("/SearchPage")}
+              onClick={() =>
+                history.push({
+                  pathname: "/SearchPage",
+                  state: {
+                    isSearch: isSearch,
+                  },
+                })
+              }
             >
               <BsSearch size={30} />
             </Button>

@@ -23,7 +23,7 @@ const Navbar = () => {
     });
   };
   return (
-    <div style={{color:"white",backgroundColor:"#161616"}}>
+    <div style={{ color: "white", backgroundColor: "#161616" }}>
       <div
         className="container"
         style={{ display: "flex", flexDirection: "row" }}
@@ -67,7 +67,8 @@ const Navbar = () => {
                   alignItems: "center",
                   backgroundColor:
                     window.location.pathname === "/HomeAdmin" ? "#0275d8" : "",
-                  color: window.location.pathname === "/HomeAdmin" ? "white" : "",
+                  color:
+                    window.location.pathname === "/HomeAdmin" ? "white" : "",
                   cursor:
                     window.location.pathname === "/HomeAdmin"
                       ? "default"
@@ -85,16 +86,21 @@ const Navbar = () => {
                   display: "flex",
                   alignItems: "center",
                   backgroundColor:
-                    window.location.pathname === "/AdminAddLiterature" ? "#0275d8" : "",
+                    window.location.pathname === "/AdminAddLiterature"
+                      ? "#0275d8"
+                      : "",
                   color:
-                    window.location.pathname === "/AdminAddLiterature" ? "white" : "",
+                    window.location.pathname === "/AdminAddLiterature"
+                      ? "white"
+                      : "",
                   cursor:
                     window.location.pathname === "/AdminAddLiterature"
                       ? "default"
                       : "pointer",
                 }}
               >
-                <BiBookAdd size={22} style={{ marginRight: 10 }} /> Add Book
+                <BiBookAdd size={22} style={{ marginRight: 10 }} /> Add
+                Literature
               </Dropdown.Item>
               <hr style={{ margin: 0 }} />
               <Dropdown.Item

@@ -14,7 +14,7 @@ const Landing = () => {
       style={{ color: "white", marginTop: "-28px", backgroundColor: "#161616" }}
     >
       <div className="container-fluid" style={{ paddingBottom: "42.5px" }}>
-        <div className="row" style={{ padding: "29px 0px 110px 78px" }}>
+        <div className="row" style={{ padding: "29px 0px 115px 78px" }}>
           <img className="responsive-img" src={Icon} alt="Logo" />
         </div>
         <div className="row">
@@ -32,7 +32,7 @@ const Landing = () => {
             </h1>
             <p style={{ fontSize: "24px" }}>
               Sign-up and receive unlimited access to all<br></br>
-              of your literatur - share your literatur.
+              of your literature - share your literature.
             </p>
             <section
               className="button"
