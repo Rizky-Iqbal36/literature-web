@@ -121,7 +121,7 @@ const AddLiterature = () => {
         setShowAlert(true);
       } catch (err) {
         console.log(err);
-        setErrorMsg(err.message);
+        setErrorMsg(err.response.data.message);
       }
     }
   );

@@ -27,9 +27,8 @@ const NavbarUser = () => {
             style={{
               display: "flex",
               flexDirection: "row",
-              marginLeft: "-20px",
+              marginLeft: "20px",
             }}
-            className="container"
           >
             <div className="col-11">
               <ul

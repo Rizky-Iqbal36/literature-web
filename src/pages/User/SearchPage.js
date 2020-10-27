@@ -7,22 +7,16 @@ import NavbarUser from "../../components/NavbarUser";
 const SearchPage = () => {
   const [selected, setSelected] = useState("Anytime");
   const [title, setTitle] = useState();
-  const year = [
-    2010,
-    2011,
-    2012,
-    2013,
-    2014,
-    2015,
-    2016,
-    2017,
-    2018,
-    2019,
-    2020,
-    2021,
-    2022,
-    2023,
-  ];
+
+  var today = new Date();
+
+  let year = new Array();
+  var minYear = today.getFullYear() - 20;
+
+  for (let i = 0; i <= 20; i++) {
+    year[i] = minYear + i;
+  }
+
   return (
     <div style={{ color: "white", backgroundColor: "#161616" }}>
       <NavbarUser />
@@ -30,7 +24,6 @@ const SearchPage = () => {
       <div
         className="container"
         style={{
-          marginLeft: "78px",
           paddingBottom: "400px",
           backgroundColor: "#161616",
         }}

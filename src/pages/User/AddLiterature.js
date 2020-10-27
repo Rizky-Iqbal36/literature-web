@@ -123,8 +123,8 @@ const AddLiterature = () => {
 
         setShowAlert(true);
       } catch (err) {
-        console.log(err);
-        setErrorMsg(err.message);
+        console.log(err.response.data.message);
+        setErrorMsg(err.response.data.message);
       }
     }
   );
@@ -134,7 +134,7 @@ const AddLiterature = () => {
       <div style={{ backgroundColor: "#161616" }}>
         <div
           className="container"
-          style={{ color: "white", paddingBottom: "100px", marginLeft: "78px" }}
+          style={{ color: "white", paddingBottom: "100px" }}
         >
           <div
             className="row"

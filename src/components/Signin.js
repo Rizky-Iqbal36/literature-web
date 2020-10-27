@@ -48,7 +48,6 @@ const Signin = (props) => {
       setAuthToken(res.data.data.token);
       try {
         const res = await API.get("/auth");
-
         dispatch({
           type: "USER_LOADED",
           payload: res.data.data.user,
@@ -64,6 +63,7 @@ const Signin = (props) => {
         });
       }
     } catch (err) {
+      setErrorMsg(err.response.data.message);
       dispatch({
         type: "LOGIN_FAIL",
       });
@@ -78,8 +78,8 @@ const Signin = (props) => {
       centered
       style={{ color: "white" }}
     >
-      {errorMsg ? <Alert variant="danger">{errorMsg || error}</Alert> : null}
       <div style={{ backgroundColor: "#161616" }}>
+        {errorMsg ? <Alert variant="danger">{errorMsg || error}</Alert> : null}
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
             <strong>Sign In</strong>

@@ -31,7 +31,6 @@ const Profile = () => {
               style={{
                 color: "white",
                 paddingBottom: "100px",
-                marginLeft: "75px",
               }}
             >
               <div
