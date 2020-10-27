@@ -1,7 +1,11 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  //dev
+  //baseURL: "http://localhost:5000/api/v1",
+
+  //production
+  baseURL: "https://literature-be.herokuapp.com",
 });
 
 export const setAuthToken = (token) => {
