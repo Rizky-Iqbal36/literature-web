@@ -1,0 +1,12 @@
+.DataUser {
+	font: avenir;
+	font-weight: 800;
+	font-size: 14px;
+	line-height: 20px;
+}
+.DetailDataUser {
+	font: google sans;
+	color: #8a8c90;
+	font-size: 12px;
+	line-height: 16px;
+}
