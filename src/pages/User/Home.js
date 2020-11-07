@@ -8,7 +8,6 @@ const Home = () => {
   const [isSearch, setIsSearch] = useState("");
   const history = useHistory();
 
-  console.log(isSearch);
   return (
     <div style={{ color: "white", backgroundColor: "#161616" }}>
       <NavbarUser />
@@ -29,7 +28,7 @@ const Home = () => {
             }}
           />
         </div>
-        <div style={{ marginLeft: "-40px" }}>
+        <div style={{ marginLeft: "-45px" }}>
           <Form
             style={{ display: "flex", flexDirection: "row" }}
             onSubmit={(e) => e.preventDefault()}

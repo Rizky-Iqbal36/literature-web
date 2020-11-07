@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Form, Button, Dropdown } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Dropdown } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import LoadLiterature from "../../components/LoadLiterature";
 import NavbarUser from "../../components/NavbarUser";
 
-const SearchPage = () => {
+const SearchPage = (props) => {
   const [selected, setSelected] = useState("Anytime");
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState(props.location.state.isSearch);
 
+  console.log(props.location.state.isSearch);
   var today = new Date();
 
-  let year = new Array();
+  let year = [];
   var minYear = today.getFullYear() - 20;
 
   for (let i = 0; i <= 20; i++) {
@@ -43,6 +44,7 @@ const SearchPage = () => {
                 borderWidth: "2px",
                 borderRadius: "5px",
               }}
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
@@ -53,8 +55,9 @@ const SearchPage = () => {
               height: "50px",
               marginLeft: "12px",
             }}
+            onClick={() => setTitle("")}
           >
-            <BsSearch size={30} />
+            Clear
           </Button>
         </div>
         <div className="row" style={{ marginTop: "51px" }}>

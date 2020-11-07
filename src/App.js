@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { UserRoute, AdminRoute } from "./context/PrivateRoute";
 import { Context } from "./context/Context";
 import { API, setAuthToken } from "./config/api";
@@ -22,7 +22,6 @@ if (localStorage.token) {
 
 function App() {
   const [state, dispatch] = useContext(Context);
-  const history = useHistory();
   useEffect(() => {
     const loadUser = async () => {
       try {

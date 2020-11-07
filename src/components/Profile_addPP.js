@@ -3,13 +3,11 @@ import { Modal, Button } from "react-bootstrap";
 import { useMutation } from "react-query";
 import { Context } from "../context/Context";
 import { API } from "../config/api";
-import { useHistory } from "react-router-dom";
 import AlertModal from "./AlertModal";
 const Profile_addPP = (props) => {
-  const [state, dispatch] = useContext(Context);
+  const [state] = useContext(Context);
   const [image, setImage] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
-  const history = useHistory();
   const [updatePP] = useMutation(async () => {
     try {
       const config = {

@@ -6,7 +6,7 @@ import { API } from "../../config/api";
 import NavbarUser from "../../components/NavbarUser";
 import { AiFillWarning } from "react-icons/ai";
 const MyCollection = () => {
-  const [state, dispatch] = useContext(Context);
+  const [state] = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [relations, setRelations] = useState([]);
   useEffect(() => {

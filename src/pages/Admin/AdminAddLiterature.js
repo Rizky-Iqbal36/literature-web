@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -66,10 +66,7 @@ const AddLiterature = () => {
       title: Yup.string().required().min(3),
       publication: Yup.string().required(),
       pages: Yup.number().required(),
-      ISBN: Yup.string()
-        .matches(/^[0-9]+$/, "ISBN only accepts input numbers from 0-9")
-        .required()
-        .min(12),
+      ISBN: Yup.string().required(),
       author: Yup.string().required(),
       thumbnail: Yup.mixed()
         .required()
@@ -247,7 +244,6 @@ const AddLiterature = () => {
                         for="thumbnail"
                         style={{
                           padding: "10px 0px 10px 20px",
-                          borderColor: "grey",
                           borderStyle: "solid",
                           borderRadius: "5px",
                           borderWidth: "thin",
@@ -261,6 +257,7 @@ const AddLiterature = () => {
                         <img
                           src={Attach}
                           style={{ paddingLeft: "50px", paddingRight: "10px" }}
+                          alt="attach_T"
                         />
                       </label>
                       <span className="help-block text-danger">
@@ -282,7 +279,6 @@ const AddLiterature = () => {
                         for="file"
                         style={{
                           padding: "10px 0px 10px 20px",
-                          borderColor: "grey",
                           borderStyle: "solid",
                           borderRadius: "5px",
                           borderWidth: "thin",
@@ -296,6 +292,7 @@ const AddLiterature = () => {
                         <img
                           src={Attach}
                           style={{ paddingLeft: "50px", paddingRight: "10px" }}
+                          alt="attach_F"
                         />
                       </label>
                       <span className="help-block text-danger">

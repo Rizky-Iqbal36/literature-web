@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { API } from "../../config/api";
 import { useHistory } from "react-router-dom";
 import { Context } from "../../context/Context";
@@ -36,7 +36,7 @@ const HomeAdmin = () => {
       const body = JSON.stringify({ status: "Waiting to be verified" });
       const res = await API.patch(`/literature/${resetId}`, body, config);
 
-      refetch();
+      await refetch();
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -56,7 +56,7 @@ const HomeAdmin = () => {
       const body = JSON.stringify({ status: "Cancel" });
       const res = await API.patch(`/literature/${cancelId}`, body, config);
 
-      refetch();
+      await refetch();
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -75,7 +75,7 @@ const HomeAdmin = () => {
       const body = JSON.stringify({ status: "Approved" });
       const res = await API.patch(`/literature/${approveId}`, body, config);
 
-      refetch();
+      await refetch();
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -86,7 +86,7 @@ const HomeAdmin = () => {
     try {
       setLoading(true);
       const res = await API.delete(`/literature/${deleteId}`);
-      refetch();
+      await refetch();
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -180,7 +180,7 @@ const HomeAdmin = () => {
                           <th>{index + 1}</th>
                           <td>{item.author}</td>
                           <td>{item.ISBN}</td>
-                          <td style={{ maxWidth: "600px" }}>
+                          <td style={{ maxWidth: "800px" }}>
                             <p className="text-justify">{item.file}</p>
                           </td>
                           <td
@@ -222,7 +222,11 @@ const HomeAdmin = () => {
                                       marginLeft: "50px",
                                     }}
                                   >
-                                    {loading ? <ActionLoading /> : "Reset"}
+                                    {loading && resetId === item.id ? (
+                                      <ActionLoading />
+                                    ) : (
+                                      "Reset"
+                                    )}
                                   </Button>
                                 </div>
                               ) : item.status === "Cancel" ? (
@@ -242,7 +246,11 @@ const HomeAdmin = () => {
                                       marginLeft: "50px",
                                     }}
                                   >
-                                    {loading ? <ActionLoading /> : "Reset"}
+                                    {loading && item.id === resetId ? (
+                                      <ActionLoading />
+                                    ) : (
+                                      "Reset"
+                                    )}
                                   </Button>
                                 </div>
                               ) : (
@@ -266,7 +274,11 @@ const HomeAdmin = () => {
                                       padding: "7px 22px 6px 21px",
                                     }}
                                   >
-                                    {loading ? <ActionLoading /> : "Cancel"}
+                                    {loading && cancelId === item.id ? (
+                                      <ActionLoading />
+                                    ) : (
+                                      "Cancel"
+                                    )}
                                   </Button>
                                   <div style={{ marginLeft: "22px" }}>
                                     <Button
@@ -282,7 +294,11 @@ const HomeAdmin = () => {
                                         Approve();
                                       }}
                                     >
-                                      {loading ? <ActionLoading /> : "Approve"}
+                                      {loading && approveId === item.id ? (
+                                        <ActionLoading />
+                                      ) : (
+                                        "Approve"
+                                      )}
                                     </Button>
                                   </div>
                                 </div>
@@ -300,7 +316,11 @@ const HomeAdmin = () => {
                                   marginLeft: "30px",
                                 }}
                               >
-                                {loading ? <ActionLoading /> : <FaTrash />}
+                                {loading && deleteId === item.id ? (
+                                  <ActionLoading />
+                                ) : (
+                                  <FaTrash />
+                                )}
                               </Button>
                             </div>
                           </td>
@@ -352,7 +372,11 @@ const HomeAdmin = () => {
                                       marginLeft: "50px",
                                     }}
                                   >
-                                    {loading ? <ActionLoading /> : "Reset"}
+                                    {loading && resetId === item.id ? (
+                                      <ActionLoading />
+                                    ) : (
+                                      "Reset"
+                                    )}
                                   </Button>
                                 </div>
                               ) : item.status === "Cancel" ? (
@@ -372,7 +396,11 @@ const HomeAdmin = () => {
                                       marginLeft: "50px",
                                     }}
                                   >
-                                    {loading ? <ActionLoading /> : "Reset"}
+                                    {loading && resetId === item.id ? (
+                                      <ActionLoading />
+                                    ) : (
+                                      "Reset"
+                                    )}
                                   </Button>
                                 </div>
                               ) : (
@@ -396,7 +424,11 @@ const HomeAdmin = () => {
                                       padding: "7px 22px 6px 21px",
                                     }}
                                   >
-                                    {loading ? <ActionLoading /> : "Cancel"}
+                                    {loading && cancelId === item.id ? (
+                                      <ActionLoading />
+                                    ) : (
+                                      "Cancel"
+                                    )}
                                   </Button>
                                   <div style={{ marginLeft: "22px" }}>
                                     <Button
@@ -412,7 +444,11 @@ const HomeAdmin = () => {
                                         Approve();
                                       }}
                                     >
-                                      {loading ? <ActionLoading /> : "Approve"}
+                                      {loading && approveId === item.id ? (
+                                        <ActionLoading />
+                                      ) : (
+                                        "Approve"
+                                      )}
                                     </Button>
                                   </div>
                                 </div>
@@ -430,7 +466,11 @@ const HomeAdmin = () => {
                                   marginLeft: "30px",
                                 }}
                               >
-                                {loading ? <ActionLoading /> : <FaTrash />}
+                                {loading && deleteId === item.id ? (
+                                  <ActionLoading />
+                                ) : (
+                                  <FaTrash />
+                                )}
                               </Button>
                             </div>
                           </td>

@@ -69,10 +69,7 @@ const AddLiterature = () => {
       title: Yup.string().required().min(3),
       publication: Yup.string().required(),
       pages: Yup.number().required(),
-      ISBN: Yup.string()
-        .matches(/^[0-9]+$/, "ISBN only accepts input numbers from 0-9")
-        .required()
-        .min(12),
+      ISBN: Yup.string().required(),
       author: Yup.string().required(),
       thumbnail: Yup.mixed()
         .required()

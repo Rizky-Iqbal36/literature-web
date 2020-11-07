@@ -30,7 +30,7 @@ const Navbar = () => {
           className="col-md-3 d-flex justify-content-end"
           style={{ marginLeft: "-100px", marginRight: "200px" }}
         >
-          <img src={Icon} width="175" height="50" />
+          <img src={Icon} width="175" height="50" alt="Icon" />
         </div>
         <div className="col-md-9 d-flex justify-content-end">
           <Dropdown>

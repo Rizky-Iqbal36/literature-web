@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { useMutation, useQuery } from "react-query";
+import { useMutation } from "react-query";
 import { API } from "../config/api";
 import NavbarUser from "../components/NavbarUser";
 import AlertModal from "./AlertModal";
 import { BsCloudDownload, BsBookmark } from "react-icons/bs";
 import { urlAsset } from "../config/api";
 import { Context } from "../context/Context";
-import { PageLoading, ActionLoading } from "./Loading";
+import { PageLoading } from "./Loading";
 const Detail = () => {
   const { id } = useParams();
   const [state] = useContext(Context);
@@ -88,7 +88,7 @@ const Detail = () => {
   const isBookmark = relations.filter(
     (item) => item.UserId == state.user.id && item.LiteratureId == id
   );
-  console.log(literature);
+  console.log(isBookmark);
   return (
     <div style={{ backgroundColor: "#161616" }}>
       {loading || !literature ? (
@@ -110,6 +110,7 @@ const Detail = () => {
                     height: "auto",
                     borderRadius: "10px",
                   }}
+                  alt={literature.title}
                 />
               </div>
               <div className="col">
