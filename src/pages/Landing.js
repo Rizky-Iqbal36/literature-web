@@ -11,7 +11,11 @@ const Landing = () => {
   const [modalShowsignup, setModalShowsignup] = React.useState(false);
   return (
     <div
-      style={{ color: "white", marginTop: "-28px", backgroundColor: "#161616" }}
+      style={{
+        color: "white",
+        marginTop: "-28px",
+        backgroundColor: "#161616",
+      }}
     >
       <div
         className="container-fluid"
@@ -19,13 +23,14 @@ const Landing = () => {
           paddingBottom: "42.5px",
           backgroundImage: "url(" + Background + ")",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "right",
+          backgroundPositionX: "618px",
+          backgroundPositionY: "107px",
         }}
       >
         <div className="row" style={{ padding: "29px 0px 115px 78px" }}>
           <img className="responsive-img" src={Icon} alt="Logo" />
         </div>
-        <div className="row">
+        <div className="row" style={{ paddingBottom: "272px" }}>
           <div className="col" style={{ marginLeft: "58px" }}>
             <h1
               style={{
@@ -54,7 +59,8 @@ const Landing = () => {
                 variant="none"
                 style={{
                   marginBottom: "20px",
-                  width: "17%",
+                  width: "211px",
+                  height: "50px",
                   backgroundColor: "#AF2E1C",
                   color: "white",
                 }}
@@ -72,7 +78,8 @@ const Landing = () => {
                 variant="none"
                 style={{
                   marginBottom: "20px",
-                  width: "17%",
+                  width: "211px",
+                  height: "50px",
                   backgroundColor: "white",
                   color: "black",
                   marginLeft: "31px",

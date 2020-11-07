@@ -152,10 +152,6 @@ const Signin = (props) => {
               </a>
             </p>
           </div>
-          <Signup
-            show={modalShowsignup}
-            onHide={() => setModalShowsignup(false)}
-          />
         </Modal.Footer>
       </div>
     </Modal>

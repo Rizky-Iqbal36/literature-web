@@ -5,6 +5,7 @@ import { Context } from "../context/Context";
 import { urlAsset } from "../config/api";
 import { Alert } from "react-bootstrap";
 import { AiFillWarning } from "react-icons/ai";
+import { PageLoading } from "./Loading";
 const LoadLiterature = (props) => {
   const [state, dispatch] = useContext(Context);
   const [literatures, setLiteratures] = useState([]);
@@ -46,13 +47,15 @@ const LoadLiterature = (props) => {
   }, [props.selected, props.title]);
 
   const founded = literatures.find((item) => item.uploadBy === state.user.id);
-  return loading || !literatures ? null : literatures.length === 0 ? (
+  return loading || !literatures ? (
+    <PageLoading />
+  ) : literatures.length === 0 ? (
     <div
       style={{
         marginTop: "80px",
         marginLeft: props.route === "PROFILE" ? "150px" : "72px",
         textAlign: "center",
-        fontSize: "50px",
+        fontSize: "36px",
         font: "avenir",
       }}
     >
@@ -85,12 +88,11 @@ const LoadLiterature = (props) => {
                     maxWidth: 230,
                     marginTop: "85px",
                     borderRadius: "10px",
-                    marginRight: (index + 1) % 4 === 0 ? "0px" : "25px",
                   }}
                 >
                   <div className="container-fluid">
                     <img
-                      src={urlAsset.thumbnail + item.thumbnail}
+                      src={urlAsset.photo + item.thumbnail}
                       className="responsive-img"
                       width="200"
                       height="270"
@@ -122,7 +124,7 @@ const LoadLiterature = (props) => {
                         style={{
                           font: "avenir",
                           fontSize: "18px",
-                          opacity: item.status === "Approved" ? "1" : "0.5",
+                          opacity: "1",
                         }}
                       >
                         {item.author}
@@ -159,7 +161,7 @@ const LoadLiterature = (props) => {
                 >
                   <div className="container-fluid">
                     <img
-                      src={urlAsset.thumbnail + item.thumbnail}
+                      src={urlAsset.photo + item.thumbnail}
                       className="responsive-img"
                       width="200"
                       height="270"
@@ -244,7 +246,7 @@ const LoadLiterature = (props) => {
           <div
             style={{
               textAlign: "center",
-              fontSize: "45px",
+              fontSize: "36px",
               font: "avenir",
               marginLeft: "270px",
             }}

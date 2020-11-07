@@ -13,7 +13,7 @@ const MyCollection = () => {
     const loadRelation = async () => {
       try {
         setLoading(true);
-        const res = await API.get("/relation");
+        const res = await API.get("/relations");
         setRelations(res.data.data.loadRelations);
         setLoading(false);
       } catch (err) {
@@ -56,7 +56,7 @@ const MyCollection = () => {
             <div
               style={{
                 textAlign: "center",
-                fontSize: "45px",
+                fontSize: "36px",
                 font: "avenir",
                 margin: "45px 0px 275px -15px",
               }}

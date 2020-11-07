@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "react-query";
 import { API } from "../../config/api";
-import { Context } from "../../context/Context";
+import { PageLoading } from "../../components/Loading";
 import Attach from "../../asset/Attach.png";
 import AlertModal from "../../components/AlertModal";
 import Navbar from "./Navbar";
@@ -41,7 +41,7 @@ const AddLiterature = () => {
   });
 
   const SUPPORTED_FORMATS_IMAGE = ["image/jpg", "image/jpeg", "image/png"];
-  const SUPPORTED_FORMATS_FILE = ["application/pdf", "application/epub+zip"];
+  const SUPPORTED_FORMATS_FILE = ["application/pdf"];
 
   const {
     handleSubmit,
@@ -82,7 +82,7 @@ const AddLiterature = () => {
         .required()
         .test(
           "fileFormat",
-          "Sorry only accept epub/pdf filetype",
+          "Sorry only accept pdf filetype",
           (value) => value && SUPPORTED_FORMATS_FILE.includes(value.type)
         ),
     }),
@@ -125,7 +125,9 @@ const AddLiterature = () => {
       }
     }
   );
-  return (
+  return isLoading ? (
+    <PageLoading />
+  ) : (
     <div style={{ backgroundColor: "#161616" }}>
       <div
         style={{

@@ -9,6 +9,7 @@ import BG from "../../asset/BG_Profile.png";
 import { MdEmail, MdPlace } from "react-icons/md";
 import { FaTransgender, FaPhoneAlt } from "react-icons/fa";
 import NavbarUser from "../../components/NavbarUser";
+import { PageLoading } from "../../components/Loading";
 import "../../App.css";
 const Profile = () => {
   const [state] = useContext(Context);
@@ -21,7 +22,7 @@ const Profile = () => {
   return (
     <>
       {state.user === undefined || isLoading ? (
-        <h1 style={{ color: "white" }}>NOW LOADING...</h1>
+        <PageLoading />
       ) : (
         <div>
           <NavbarUser />
@@ -132,7 +133,7 @@ const Profile = () => {
                       <img
                         alt="avatar"
                         className="figure-img img-fluid rounded"
-                        src={urlAsset.avatar + User.data.data.loadUser?.avatar}
+                        src={urlAsset.photo + User.data.data.loadUser?.avatar}
                         style={{
                           width: 226,
                           height: 202,

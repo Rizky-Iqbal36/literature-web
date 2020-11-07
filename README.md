@@ -1,22 +1,5 @@
-plug this in head of ./public/index.html : <br />
-
-<link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    /><br />
-
-"dependencies": {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"axios": "^0.20.0",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"formik": "^2.2.0",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"react-bootstrap": "^1.3.0",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"react-dom": "^16.14.0",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"react-icons": "^3.11.0",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"react-query": "^2.23.1",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"react-router-dom": "^5.2.0",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"yup": "^0.29.3"<br />
-},<br />
+link https://rizky-iqbal.netlify.app/ <br />
+https://literature-qq36.netlify.app/ <br />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

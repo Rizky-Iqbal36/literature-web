@@ -8,6 +8,7 @@ import AlertModal from "./AlertModal";
 import { BsCloudDownload, BsBookmark } from "react-icons/bs";
 import { urlAsset } from "../config/api";
 import { Context } from "../context/Context";
+import { PageLoading, ActionLoading } from "./Loading";
 const Detail = () => {
   const { id } = useParams();
   const [state] = useContext(Context);
@@ -41,7 +42,7 @@ const Detail = () => {
     const loadRelation = async () => {
       try {
         setLoading(true);
-        const res = await API.get("/relation");
+        const res = await API.get("/relations");
         setRelations(res.data.data.loadRelations);
         setLoading(false);
       } catch (err) {
@@ -91,7 +92,7 @@ const Detail = () => {
   return (
     <div style={{ backgroundColor: "#161616" }}>
       {loading || !literature ? (
-        <h1>Now Loading...</h1>
+        <PageLoading />
       ) : (
         <div>
           <NavbarUser />
@@ -103,7 +104,7 @@ const Detail = () => {
               <div className="col">
                 <img
                   //src={require(`../../../server/public/thumbnails/${literature.thumbnail}`)}
-                  src={urlAsset.thumbnail + literature.thumbnail}
+                  src={urlAsset.photo + literature.thumbnail}
                   style={{
                     width: "300px",
                     height: "auto",

@@ -8,12 +8,13 @@ import { Context } from "../../context/Context";
 import Attach from "../../asset/Attach.png";
 import AlertModal from "../../components/AlertModal";
 import NavbarUser from "../../components/NavbarUser";
+import { PageLoading } from "../../components/Loading";
 const AddLiterature = () => {
   const [state, dispatch] = useContext(Context);
   const [showAlert, setShowAlert] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [when, setWhen] = useState("");
-
+  const [loading, setLoading] = useState(false);
   //var getYear = parseInt(when.substring(0,4));
   let getYear = 0;
   let Month = 0;
@@ -42,7 +43,7 @@ const AddLiterature = () => {
   });
 
   const SUPPORTED_FORMATS_IMAGE = ["image/jpg", "image/jpeg", "image/png"];
-  const SUPPORTED_FORMATS_FILE = ["application/pdf", "application/epub+zip"];
+  const SUPPORTED_FORMATS_FILE = ["application/pdf"];
 
   const {
     handleSubmit,
@@ -84,7 +85,7 @@ const AddLiterature = () => {
         .required()
         .test(
           "fileFormat",
-          "Sorry only accept epub/pdf filetype",
+          "Sorry only accept pdf filetype",
           (value) => value && SUPPORTED_FORMATS_FILE.includes(value.type)
         ),
     }),
@@ -99,6 +100,7 @@ const AddLiterature = () => {
   const [storeLiterature, { isLoading, error }] = useMutation(
     async (values) => {
       try {
+        setLoading(true);
         const config = {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -122,13 +124,17 @@ const AddLiterature = () => {
         const res = await API.post("/literature", formData, config);
 
         setShowAlert(true);
+        setLoading(false);
       } catch (err) {
         console.log(err.response.data.message);
         setErrorMsg(err.response.data.message);
+        setLoading(false);
       }
     }
   );
-  return (
+  return loading ? (
+    <PageLoading />
+  ) : (
     <>
       <NavbarUser />
       <div style={{ backgroundColor: "#161616" }}>

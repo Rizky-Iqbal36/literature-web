@@ -19,7 +19,7 @@ const Signup = (props) => {
       phone: "",
       address: "",
       isAdmin: false,
-      avatar: "default.png",
+      avatar: "Literature_Project/avatars/default.png",
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Email required").email(),
@@ -134,7 +134,7 @@ const Signup = (props) => {
                 <Form.Group>
                   <Form.Control
                     type="text"
-                    placeholder="Fullname"
+                    placeholder="fullname"
                     name="fullname"
                     {...getFieldProps("fullname")}
                   />
