@@ -1,0 +1,15 @@
+#myCollection main {
+  color: white;
+  margin: 41px 78px 0px 24px;
+  height: 100%;
+}
+#myCollection main p {
+  font-family: Times New Roman;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 37px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+}

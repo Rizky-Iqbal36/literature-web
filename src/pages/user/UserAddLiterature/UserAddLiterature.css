@@ -1,0 +1,43 @@
+#UserAddLiterature main {
+  color: white;
+  margin: 41px 78px 0px 24px;
+  height: 100%;
+}
+#UserAddLiterature main p {
+  font-family: "Times New Roman";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 37px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-bottom: 50px;
+}
+#UserAddLiterature main small {
+  font-size: 1em;
+}
+#UserAddLiterature main form .form-group {
+  padding-bottom: 10px;
+}
+#UserAddLiterature main form .form-group .form-control {
+  width: 105%;
+}
+#UserAddLiterature main form .form-group .custom-file label {
+  padding: 10px 0px 10px 20px;
+}
+#UserAddLiterature main form .form-group .custom-file label img {
+  padding-left: 50px;
+  padding-right: 10px;
+}
+@media (max-width: 475px) {
+  #UserAddLiterature main form .form-group .form-control {
+    font-size: 12px;
+  }
+  #UserAddLiterature main form .form-group .custom-file label {
+    font-size: 12px;
+    padding: 5px 0px 5px 10px;
+  }
+  #UserAddLiterature main form .form-group .custom-file label img {
+    padding-left: 20px;
+  }
+}

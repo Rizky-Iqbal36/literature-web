@@ -1,0 +1,31 @@
+#HomeAdmin main {
+  color: white;
+  margin-top: 59px;
+  margin-left: 87px;
+  margin-right: 88px;
+  height: 100%;
+}
+#HomeAdmin main p {
+  font-family: Times New Roman;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 37px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+  padding-bottom: 41px;
+}
+@media (max-width: 600px) {
+  #HomeAdmin main {
+    color: white;
+    margin-left: 0;
+    margin-right: 0;
+    height: 100%;
+  }
+  #HomeAdmin main p {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+}

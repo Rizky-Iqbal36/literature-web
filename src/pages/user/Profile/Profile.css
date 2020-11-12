@@ -1,0 +1,257 @@
+#profile main {
+  color: white;
+  margin: 41px 78px 0px 24px;
+  height: 100%;
+}
+#profile main p {
+  font-family: Times New Roman;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 37px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+#profile main #p2 {
+  font-family: Times New Roman;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 37px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-top: 61px;
+  padding-bottom: 41px;
+}
+#profile main #container {
+  margin-top: 39px;
+  background-color: transparent;
+  background-image: url("../../../asset/BG_Profile.png");
+  background-repeat: no-repeat;
+  height: 334px;
+  padding-right: 105%;
+  border-radius: 8px;
+}
+#profile main #container #content {
+  display: flex;
+  flex-direction: row;
+  padding-left: 28px;
+}
+#profile main #container #content #data {
+  min-width: 884px;
+}
+#profile main #container #content #data #subData {
+  display: flex;
+  flex-direction: row;
+  padding-top: 28px;
+}
+#profile main #container #content #data #subData #first {
+  display: flex;
+  flex-direction: row;
+  padding-top: 9px;
+}
+#profile main #container #content #data #subData .DataUser {
+  font: Avenir;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+#profile main #container #content #data #subData .DetailDataUser {
+  font: Avenir;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  display: flex;
+
+  /* Grey Medium */
+
+  color: #8a8c90;
+}
+#profile main #container #content #photo {
+  padding-top: 34px;
+}
+#profile main #container #content #photo img {
+  width: 226px;
+  height: 202px;
+  margin-bottom: 12px;
+}
+#profile main #container #content #photo .btn {
+  background-color: #af2e1c;
+  width: 227px;
+  height: 50px;
+  text-align: center;
+  font: Avenir;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
+@media (max-width: 1300px) {
+  #profile main #container #content #data {
+    min-width: 784px;
+  }
+}
+@media (max-width: 1200px) {
+  #profile main #container #content #data {
+    min-width: 684px;
+  }
+  #profile main #container {
+    margin-top: 39px;
+    background-color: transparent;
+    background-image: url("../../../asset/BG_Profile.png");
+    background-repeat: no-repeat;
+    height: 334px;
+    padding-right: 110%;
+    border-radius: 8px;
+  }
+}
+@media (max-width: 1100px) {
+  #profile main #container #content #data {
+    min-width: 584px;
+  }
+  #profile main #container {
+    margin-top: 39px;
+    background-color: transparent;
+    background-image: url("../../../asset/BG_Profile.png");
+    background-repeat: no-repeat;
+    height: 334px;
+    padding-right: 110%;
+    border-radius: 8px;
+  }
+}
+@media (max-width: 1000px) {
+  #profile main #container #content #data {
+    min-width: 475px;
+  }
+  #profile main #container {
+    margin-top: 39px;
+    background-color: transparent;
+    background-image: url("../../../asset/BG_Profile.png");
+    background-repeat: no-repeat;
+    height: 334px;
+    padding-right: 115%;
+    border-radius: 8px;
+  }
+}
+@media (max-width: 800px) {
+  #profile main #container #content #data {
+    min-width: 400px;
+  }
+  #profile main #container {
+    margin-top: 39px;
+    background-color: transparent;
+    background-image: url("../../../asset/BG_Profile.png");
+    background-repeat: no-repeat;
+    height: 334px;
+    padding-right: 110%;
+    border-radius: 8px;
+  }
+}
+@media (max-width: 768px) {
+  #profile main #container #content #data {
+    min-width: 310px;
+  }
+  #profile main #container {
+    margin-top: 39px;
+    background-color: transparent;
+    background-image: url("../../../asset/BG_Profile.png");
+    background-repeat: no-repeat;
+    height: 334px;
+    padding-right: 110%;
+    border-radius: 8px;
+  }
+  #profile main #container #content #photo img {
+    width: 226px;
+    height: 165px;
+    margin-bottom: 12px;
+  }
+  #profile main #container #content #photo .btn {
+    background-color: #af2e1c;
+    width: 175px;
+    height: 50px;
+    text-align: center;
+    font: Avenir;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+  }
+}
+@media (max-width: 540px) {
+  #profile main #container #content #data {
+    min-width: 210px;
+  }
+  #profile main #container {
+    margin-top: 39px;
+    background-color: transparent;
+    background-image: url("../../../asset/BG_Profile.png");
+    background-repeat: no-repeat;
+    height: 334px;
+    padding-right: 120%;
+    border-radius: 8px;
+  }
+  #profile main #container #content #photo img {
+    width: 230px;
+    height: 150px;
+    margin-bottom: 12px;
+  }
+  #profile main #container #content #photo .btn {
+    background-color: #af2e1c;
+    width: 175px;
+    height: 50px;
+    text-align: center;
+    font: Avenir;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+  }
+}
+@media (max-width: 440px) {
+  #profile main #container #content #data {
+    min-width: 210px;
+  }
+  #profile main #container {
+    margin-top: 39px;
+    background-color: transparent;
+    background-image: url("../../../asset/BG_Profile.png");
+    background-repeat: no-repeat;
+    height: 334px;
+    padding-right: 150%;
+    border-radius: 8px;
+  }
+  #profile main #container #content #photo img {
+    width: 230px;
+    height: 130px;
+    margin-bottom: 12px;
+  }
+  #profile main #container #content #photo .btn {
+    background-color: #af2e1c;
+    width: 125px;
+    height: 50px;
+    text-align: center;
+    font: Avenir;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+  }
+}

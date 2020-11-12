@@ -1,0 +1,65 @@
+::-webkit-input-placeholder {
+  /* Chrome */
+  color: #d2d2d2 !important;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #d2d2d2 !important;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #d2d2d2 !important;
+  opacity: 1;
+}
+:-moz-placeholder {
+  /* Firefox 4 - 18 */
+  color: #d2d2d2 !important;
+  opacity: 1;
+}
+#searchPage {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+#searchPage main {
+  padding: 41px 78px 0px 24px;
+  height: 100%;
+}
+#searchPage main #content #search {
+  display: flex;
+  flex-direction: row;
+}
+#searchPage main #content #literature {
+  margin-top: 51px;
+  display: flex;
+  flex-direction: row;
+}
+#searchPage main #content #literature .dropdown {
+  padding-top: 36px;
+  margin-right: 72px;
+}
+#searchPage main #content #literature .dropdown button {
+  background: rgba(210, 210, 210, 0.25);
+  border: 2px solid #bcbcbc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+#searchPage main .form-group .form-control {
+  width: 600px;
+  height: 50px;
+  background: rgba(210, 210, 210, 0.25);
+  border: 2px solid #bcbcbc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
+}
+@media (max-width: 768px) {
+  #searchPage main .form-group .form-control {
+    width: 300px;
+  }
+}
+@media (max-width: 440px) {
+  #searchPage main .form-group .form-control {
+    width: 200px;
+  }
+}

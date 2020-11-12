@@ -1,0 +1,6 @@
+.form-group .form-control {
+  background: rgba(210, 210, 210, 0.25) !important;
+  color: white !important;
+  border: 2px solid #bcbcbc;
+  box-sizing: border-box;
+}

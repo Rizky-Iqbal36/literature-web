@@ -1,0 +1,298 @@
+#landing {
+  background-image: url("../asset/gambar.png");
+  color: white;
+  margin: 0;
+  padding: 0;
+  background-position-x: 620px;
+  background-position-y: 106px;
+  background-position: absolute;
+  background-repeat: no-repeat;
+  padding-bottom: 272px;
+  height: 130vh !important;
+}
+#landing img {
+  margin-left: 78px;
+  margin-top: 45px;
+}
+.content .row .col h1 {
+  font-family: "Times New Roman";
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 79px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-top: 154px;
+  padding-left: 78px;
+}
+.content .row .col p {
+  padding-top: 44px;
+  padding-left: 78px;
+  font: "Avenir";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.button {
+  padding-left: 78px;
+  padding-top: 25px;
+}
+.button #signup {
+  background: #af2e1c;
+  color: white;
+  height: 50px;
+  width: 211px;
+  border-radius: 5px;
+  font: "Avenir";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.button #signin {
+  background: #f9f9f9;
+  height: 50px;
+  width: 211px;
+  border-radius: 5px;
+  font: "Avenir";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  #landing img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+  #landing {
+    height: 100vh !important;
+    position: absolute;
+    background: url("../asset/gambar.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 130px;
+  }
+  .content .row .col h1 {
+    font-family: "Times New Roman";
+    font-size: 72px;
+    font-style: normal;
+    line-height: 72px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-top: 0;
+    margin-top: 80px;
+    padding-left: 12px;
+    padding-bottom: 100px;
+  }
+
+  .content .row .col p {
+    padding-top: 145px;
+    padding-left: 12px;
+    font: "Avenir";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .button {
+    padding-top: 25px;
+    flex: 1 1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-left: 0px;
+  }
+  .button #signup {
+    background: #af2e1c;
+    color: white;
+    height: 50px;
+    width: 150px;
+    border-radius: 5px;
+    font: "Avenir";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .button #signin {
+    background: #f9f9f9;
+    height: 50px;
+    width: 150px;
+    border-radius: 5px;
+    font: "Avenir";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+}
+@media (max-width: 540px) {
+  #landing img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+  #landing {
+    position: absolute;
+    background: url("../asset/gambar.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 130px;
+    height: 100vh !important;
+  }
+  .content .row .col h1 {
+    font-family: "Times New Roman";
+    font-size: 56px;
+    font-style: normal;
+    line-height: 56px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-top: 0;
+    margin-top: 80px;
+    padding-left: 12px;
+    padding-bottom: 220px;
+  }
+  .content .row .col p {
+    display: flex;
+    justify-content: center;
+    padding-top: 0;
+    padding-left: 0;
+    font: "Avenir";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .button {
+    padding-top: 25px;
+    flex: 1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-left: 0px;
+  }
+  .button #signup {
+    background: #af2e1c;
+    color: white;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    font: "Avenir";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .button #signin {
+    background: #f9f9f9;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    font: "Avenir";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+}
+@media (max-width: 440px) {
+  #landing img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+  #landing {
+    position: absolute;
+    background: url("../asset/gambar.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 130px;
+    height: 100vh !important;
+  }
+  .content .row .col h1 {
+    font-family: "Times New Roman";
+    font-size: 42px;
+    font-style: normal;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-top: 0;
+    margin-top: 80px;
+    padding-left: 12px;
+    padding-bottom: 150px;
+  }
+  .content .row .col p {
+    display: flex;
+    justify-content: center;
+    padding-top: 0;
+    padding-left: 0;
+    font: "Avenir";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .button {
+    padding-left: 72px;
+    padding-top: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .button #signup {
+    background: #af2e1c;
+    color: white;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    font: "Avenir";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .button #signin {
+    background: #f9f9f9;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    font: "Avenir";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+}

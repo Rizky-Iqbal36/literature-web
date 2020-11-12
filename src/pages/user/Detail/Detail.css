@@ -1,0 +1,94 @@
+#Detail main {
+  color: white;
+  margin: 77px 78px 0px 24px;
+  height: 100%;
+}
+#Detail main .container-fluid #content {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 100px;
+}
+#Detail main .container-fluid #content #image {
+  min-width: 400px;
+  margin-right: 46px;
+}
+#Detail main .container-fluid #content img {
+  width: 400px;
+  height: 543;
+  border-radius: 10px;
+}
+#Detail main .container-fluid #content #data {
+  width: 100vh;
+}
+#Detail main .container-fluid #content #data {
+  display: flex;
+  flex-direction: row;
+}
+#Detail main .container-fluid #content #data #right {
+  width: 100%;
+}
+#Detail main .container-fluid #content #data #right .btn-none {
+  background-color: #af2e1c;
+  color: white;
+}
+#Detail main .container-fluid #content #data #left .btn-none {
+  background: #af2e1c;
+  color: white;
+  width: 144px;
+  height: 50px;
+  padding-top: 11px;
+  padding-bottom: 12px;
+}
+#Detail main .container-fluid #content #data #left {
+  font-weight: normal;
+  max-width: 400px;
+  margin-right: 25px;
+}
+#Detail main .container-fluid #content #data #left #information {
+  padding-bottom: 48px;
+}
+#Detail main .container-fluid #content #data #left #information #title {
+  font-family: Times New Roman;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 43px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-bottom: 15px;
+}
+#Detail main .container-fluid #content #data #left #information #author {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #929292;
+}
+#Detail main .container-fluid #content #data #left #information #detail {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+#Detail main .container-fluid #content #data #left #information #detail2 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #af2e1c;
+}
+#Detail main .container-fluid #content #data #left #information #data {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #929292;
+}
