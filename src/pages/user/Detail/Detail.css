@@ -1,6 +1,6 @@
 #Detail main {
   color: white;
-  margin: 77px 78px 0px 24px;
+  margin: 50px 90px 36px 78px;
   height: 100%;
 }
 #Detail main .container-fluid #content {
@@ -14,7 +14,7 @@
 }
 #Detail main .container-fluid #content img {
   width: 400px;
-  height: 543;
+  height: 543px;
   border-radius: 10px;
 }
 #Detail main .container-fluid #content #data {
@@ -91,4 +91,88 @@
   letter-spacing: 0em;
   text-align: left;
   color: #929292;
+}
+@media (max-width: 768px) {
+  #Detail main {
+    color: white;
+    margin: 50px 90px 36px 78px;
+    height: 100%;
+  }
+  #Detail main .container-fluid #content #image {
+    min-width: 250px;
+    margin-right: 46px;
+  }
+  #Detail main .container-fluid #content img {
+    width: 250px;
+    height: 393px;
+    border-radius: 10px;
+  }
+  #Detail main .container-fluid #content #data #right {
+    width: 100%;
+  }
+  #Detail main .container-fluid #content #data #right .btn-none {
+    background-color: #af2e1c;
+    color: white;
+  }
+  #Detail main .container-fluid #content #data #left .btn-none {
+    background: #af2e1c;
+    color: white;
+    width: 144px;
+    height: 50px;
+    padding-top: 11px;
+    padding-bottom: 12px;
+  }
+  #Detail main .container-fluid #content #data #left {
+    font-weight: normal;
+    max-width: 300px;
+    margin-right: 25px;
+  }
+  #Detail main .container-fluid #content #data #left #information {
+    padding-bottom: 24px;
+  }
+  #Detail main .container-fluid #content #data #left #information #title {
+    font-family: Times New Roman;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-bottom: 15px;
+  }
+  #Detail main .container-fluid #content #data #left #information #author {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #929292;
+  }
+  #Detail main .container-fluid #content #data #left #information #detail {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  #Detail main .container-fluid #content #data #left #information #detail2 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #af2e1c;
+  }
+  #Detail main .container-fluid #content #data #left #information #data {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #929292;
+  }
 }

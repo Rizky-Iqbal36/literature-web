@@ -85,6 +85,7 @@
 #loadLiterature .col-md-3 {
   cursor: pointer;
   padding-bottom: 82px;
+  max-width: 220px;
 }
 #loadLiterature .col-md-3 img {
   border-radius: 10px;

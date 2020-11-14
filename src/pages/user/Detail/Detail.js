@@ -111,15 +111,15 @@ const Detail = () => {
                       className="text-justify"
                       style={{
                         fontSize:
-                          literature.title?.length > 20
+                          literature.title?.length > 40
                             ? "28px"
-                            : literature.title?.length > 40
+                            : literature.title?.length > 60
                             ? "24"
                             : null,
                         lineHeight:
-                          literature.title?.length > 20
+                          literature.title?.length > 40
                             ? "28px"
-                            : literature.title?.length > 40
+                            : literature.title?.length > 60
                             ? "24"
                             : null,
                       }}

@@ -1,6 +1,6 @@
 #profile main {
   color: white;
-  margin: 41px 78px 0px 24px;
+  margin: 50px 90px 36px 78px;
   height: 100%;
 }
 #profile main p {
@@ -38,7 +38,7 @@
   padding-left: 28px;
 }
 #profile main #container #content #data {
-  min-width: 884px;
+  min-width: 774px;
 }
 #profile main #container #content #data #subData {
   display: flex;
