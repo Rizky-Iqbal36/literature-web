@@ -164,13 +164,14 @@ const HomeAdmin = () => {
                   .sort((a, b) => a.id - b.id)
                   .reverse()
                   .map((item, index) => {
+                    const fileLength = item.file.length;
                     if (selected === "All") {
                       return (
                         <tr>
-                          <th>{item.id}</th>
+                          <th>{index + 1}</th>
                           <td>{item.author}</td>
                           <td>{item.ISBN}</td>
-                          <td>{item.file}</td>
+                          <td>{item.file.substr(25, fileLength)}</td>
                           <td
                             style={{
                               color:
@@ -320,7 +321,7 @@ const HomeAdmin = () => {
                           <th>{index + 1}</th>
                           <td>{item.author}</td>
                           <td>{item.ISBN}</td>
-                          <td>{item.file}</td>
+                          <td>{item.file.substr(25, fileLength)}</td>
                           <td
                             style={{
                               color:

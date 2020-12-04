@@ -172,7 +172,6 @@
     cursor: pointer;
     padding-bottom: 82px;
     width: 105px;
-    margin-right: auto;
   }
   #loadLiterature .col-md-3 img {
     width: 120px;
@@ -389,6 +388,9 @@
   }
 }
 @media (max-width: 475px) {
+  .row {
+    width: 30vh;
+  }
   #literatureByUser {
     display: flex;
     flex: 1;

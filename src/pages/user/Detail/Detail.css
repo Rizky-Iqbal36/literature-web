@@ -92,7 +92,7 @@
   text-align: left;
   color: #929292;
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   #Detail main {
     color: white;
     margin: 50px 90px 36px 78px;

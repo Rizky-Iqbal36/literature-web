@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { userContext } from "./userContext";
-
+import { PageLoading } from "../components/Loading";
 export const UserRoute = ({ component: Component, ...rest }) => {
   const [state] = useContext(userContext);
   return (
@@ -9,7 +9,9 @@ export const UserRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) =>
         state.loading ? (
-          <h1>LOADING...</h1>
+          <div style={{ backgroundColor: "#161616" }}>
+            <PageLoading />
+          </div>
         ) : state.isLoginUser ? (
           <Component {...props} />
         ) : (
@@ -27,7 +29,9 @@ export const AdminRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) =>
         state.loading ? (
-          <h1>LOADING...</h1>
+          <div style={{ backgroundColor: "#161616" }}>
+            <PageLoading />
+          </div>
         ) : state.isLoginAdmin ? (
           <Component {...props} />
         ) : (

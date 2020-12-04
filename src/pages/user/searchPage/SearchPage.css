@@ -53,12 +53,22 @@
   border-radius: 5px;
   color: white;
 }
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   #searchPage main .form-group .form-control {
     width: 300px;
   }
+  #searchPage main #content #literature .dropdown {
+    padding-top: 0;
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
+  #searchPage main #content #literature {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
 }
-@media (max-width: 440px) {
+@media only screen and (max-width: 440px) {
   #searchPage main .form-group .form-control {
     width: 200px;
   }

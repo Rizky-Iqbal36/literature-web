@@ -16,7 +16,7 @@ const Profile = () => {
   const { isLoading, error, data: User, refetch } = useQuery(
     "loadProfile",
     () => API.get(`/user/${state.user.id}`)
-  );
+  );  
   return (
     <div className="body" id="profile" style={{ backgroundColor: "#161616" }}>
       <NavbarUser />

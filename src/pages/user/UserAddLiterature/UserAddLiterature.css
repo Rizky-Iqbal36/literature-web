@@ -29,7 +29,7 @@
   padding-left: 50px;
   padding-right: 10px;
 }
-@media (max-width: 475px) {
+@media only screen and (max-width: 475px) {
   #UserAddLiterature main form .form-group .form-control {
     font-size: 12px;
   }
