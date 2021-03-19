@@ -46,9 +46,7 @@ const LoadLiterature = (props) => {
   }, [props.selected, props.title]);
 
   const founded = literatures.find((item) => item.uploadBy === state.user.id);
-  return loading || !literatures ? (
-    <h1>Loading...</h1>
-  ) : literatures.length === 0 ? (
+  return loading || !literatures ? null : literatures.length === 0 ? (
     <div
       style={{
         marginTop: "80px",

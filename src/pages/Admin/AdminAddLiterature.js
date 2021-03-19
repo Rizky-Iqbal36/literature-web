@@ -48,6 +48,7 @@ const AddLiterature = () => {
     getFieldProps,
     errors,
     touched,
+    values,
     resetForm,
     setFieldValue,
   } = useFormik({
@@ -65,7 +66,10 @@ const AddLiterature = () => {
       title: Yup.string().required().min(3),
       publication: Yup.string().required(),
       pages: Yup.number().required(),
-      ISBN: Yup.number().required().min(12),
+      ISBN: Yup.string()
+        .matches(/^[0-9]+$/, "ISBN only accepts input numbers from 0-9")
+        .required()
+        .min(12),
       author: Yup.string().required(),
       thumbnail: Yup.mixed()
         .required()
@@ -249,7 +253,9 @@ const AddLiterature = () => {
                           cursor: "pointer",
                         }}
                       >
-                        Attach Literature thumbnail{" "}
+                        {values.thumbnail.name
+                          ? values.thumbnail.name
+                          : "Attache Book Thumbnail"}
                         <img
                           src={Attach}
                           style={{ paddingLeft: "50px", paddingRight: "10px" }}
@@ -282,7 +288,9 @@ const AddLiterature = () => {
                           cursor: "pointer",
                         }}
                       >
-                        Attach Literature file{" "}
+                        {values.file.name
+                          ? values.file.name
+                          : " Attach Literature file"}
                         <img
                           src={Attach}
                           style={{ paddingLeft: "50px", paddingRight: "10px" }}

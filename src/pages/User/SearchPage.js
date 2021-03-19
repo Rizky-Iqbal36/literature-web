@@ -21,8 +21,8 @@ const SearchPage = () => {
     2020,
     2021,
     2022,
+    2023,
   ];
-  console.log(title);
   return (
     <div style={{ color: "white", backgroundColor: "#161616" }}>
       <NavbarUser />
@@ -67,17 +67,6 @@ const SearchPage = () => {
         <div className="row" style={{ marginTop: "51px" }}>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <div className="col-1" style={{ alignContent: "center" }}>
-              <div
-                style={{ marginLeft: "20px", font: "avenir", fontSize: "16px" }}
-              >
-                <h6
-                  style={{
-                    color: "#AF2E1C",
-                  }}
-                >
-                  Anytime
-                </h6>
-              </div>
               <Dropdown
                 drop="down"
                 onSelect={(e) => {
@@ -88,21 +77,21 @@ const SearchPage = () => {
                   variant="danger"
                   id="dropdown-basic"
                   style={{
-                    backgroundColor: "#454545",
+                    backgroundColor: "#161616",
                     color: "white",
                     outline: "none",
                     borderWidth: "2px",
                     borderColor: "white",
                   }}
                 >
-                  {selected}
+                  {selected === "Anytime" ? `Anytime` : `Since ${selected}`}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item eventKey="Anytime">Anytime</Dropdown.Item>
                   {year.map((year, index) => {
                     return (
                       <Dropdown.Item eventKey={year} key={index} as={Button}>
-                        {year}
+                        Since {year}
                       </Dropdown.Item>
                     );
                   })}
