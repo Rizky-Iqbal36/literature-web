@@ -143,6 +143,10 @@ const LoadLiterature = (props) => {
                           font: "avenir",
                           fontSize: "18px",
                           fontWeight: "800",
+                          marginLeft: "-30px",
+                          backgroundColor: "#6290c8",
+                          width: "100%",
+                          textAlign: "center",
                         }}
                       >
                         literature Canceled
@@ -152,11 +156,14 @@ const LoadLiterature = (props) => {
                         style={{
                           color: "#FFD600",
                           position: "absolute",
+                          marginLeft: "-30px",
                           top: "50%",
-                          left: "7.5%",
                           font: "avenir",
                           fontSize: "18px",
                           fontWeight: "800",
+                          backgroundColor: "#6290c8",
+                          textAlign: "center",
+                          width: "100%",
                         }}
                       >
                         Waiting to be verified

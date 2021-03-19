@@ -16,10 +16,30 @@ const AddLiterature = () => {
 
   //var getYear = parseInt(when.substring(0,4));
   let getYear = 0;
+  let Month = 0;
   if (when) {
     getYear = parseInt(when.substr(0, 4));
+    Month = parseInt(when.substr(5, 2));
   }
-  console.log(getYear);
+  let getMonth = "";
+  [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ].map((month, index) => {
+    if (index + 1 === Month) {
+      getMonth = month;
+    }
+  });
 
   const SUPPORTED_FORMATS_IMAGE = ["image/jpg", "image/jpeg", "image/png"];
   const SUPPORTED_FORMATS_FILE = ["application/pdf", "application/epub+zip"];
@@ -91,6 +111,7 @@ const AddLiterature = () => {
         formData.append("thumbnail", values.thumbnail);
         formData.append("status", values.status);
         formData.append("year", getYear);
+        formData.append("month", getMonth);
 
         console.log(formData);
 

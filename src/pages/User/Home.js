@@ -1,28 +1,33 @@
 import React from "react";
-import { Form, Button, Dropdown } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
-import LoadLiterature from "../../components/LoadLiterature";
 import NavbarUser from "../../components/NavbarUser";
+import Icon from "../../asset/Vector.png";
 const Home = () => {
-  const handleSubmit = () => {
-    console.log("Submit");
-  };
+  const history = useHistory();
   return (
     <div style={{ color: "white", backgroundColor: "#161616" }}>
       <NavbarUser />
       <div
-        className="container"
         style={{
-          marginLeft: "78px",
-          paddingBottom: "400px",
-          backgroundColor: "#161616",
+          padding: "142px 383px 406px 395px",
         }}
       >
-        <div className="row">
-          <Form
-            onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "row" }}
-          >
+        <div style={{ marginBottom: "51px" }}>
+          <img
+            className="responsive-img"
+            src={Icon}
+            alt="Logo"
+            style={{
+              display: "block",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          />
+        </div>
+        <div style={{ marginLeft: "-40px" }}>
+          <Form style={{ display: "flex", flexDirection: "row" }}>
             <Form.Group>
               <Form.Control
                 type="text"
@@ -39,53 +44,16 @@ const Home = () => {
               />
             </Form.Group>
             <Button
-              type="submit"
               style={{
                 backgroundColor: "#AF2E1C",
                 height: "50px",
                 marginLeft: "12px",
               }}
+              onClick={() => history.push("/SearchPage")}
             >
               <BsSearch size={30} />
             </Button>
           </Form>
-        </div>
-        <div className="row" style={{ marginLeft: "-30px", marginTop: "51px" }}>
-          <div className="col-2" style={{ alignContent: "center" }}>
-            <div
-              style={{ marginLeft: "20px", font: "avenir", fontSize: "16px" }}
-            >
-              <h6
-                style={{
-                  color: "#AF2E1C",
-                }}
-              >
-                Anytime
-              </h6>
-            </div>
-            <Dropdown drop="bottom">
-              <Dropdown.Toggle
-                variant="danger"
-                id="dropdown-basic"
-                style={{
-                  backgroundColor: "#454545",
-                  color: "white",
-                  outline: "none",
-                  borderWidth: "2px",
-                  borderColor: "white",
-                }}
-              >
-                Since 2020
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item eventKey="All">Since 2020</Dropdown.Item>
-                <Dropdown.Item eventKey="View">View</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
-          <div className="col-10" style={{ marginTop: "-80px" }}>
-            <LoadLiterature route="HOME" />
-          </div>
         </div>
       </div>
     </div>

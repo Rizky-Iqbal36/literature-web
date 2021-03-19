@@ -5,14 +5,15 @@ import { Context } from "../../context/Context";
 import Navbar from "./Navbar";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
-import { BiReset } from "react-icons/bi";
+import { FaTrash } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 import { useMutation, useQuery } from "react-query";
 const HomeAdmin = () => {
-  const [state, dispatch] = useContext(Context);
+  const [state] = useContext(Context);
   const [cancelId, setCancelId] = useState(null);
   const [approveId, setApproveId] = useState(null);
   const [resetId, setResetId] = useState(null);
+  const [deleteId, setDeleteId] = useState(null);
   const {
     isLoading,
     error,
@@ -69,6 +70,12 @@ const HomeAdmin = () => {
       console.log(err);
     }
   });
+  const [onDelete] = useMutation(async () => {
+    try {
+      const res = await API.delete(`/literature/${deleteId}`);
+      refetch();
+    } catch (err) {}
+  });
   const history = useHistory();
   if (!state.isLoginAdmin) {
     history.push(`/`);
@@ -76,7 +83,7 @@ const HomeAdmin = () => {
 
   return (
     <div style={{ backgroundColor: "#161616" }}>
-      <div style={{ paddingBottom: "30px" }}>
+      <div style={{ paddingBottom: "84px" }}>
         {isLoading || !literature ? (
           <h1>Now Loading...</h1>
         ) : error ? (
@@ -100,7 +107,7 @@ const HomeAdmin = () => {
                   paddingBottom: "29px",
                 }}
               >
-                Book Verification
+                Literature Verification
               </h1>
               <table
                 className="table"
@@ -134,88 +141,105 @@ const HomeAdmin = () => {
                         {item.status}
                       </td>
                       <td>
-                        {item.status === "Approved" ? (
-                          <div>
-                            <AiFillCheckCircle size={40} color="#3BB54A" />
-                            <Button
-                              variant="warning"
-                              onClick={() => {
-                                setResetId(item.id);
-                                reset();
-                              }}
-                              style={{
-                                background: "##ffcc00",
-                                color: "white",
-                                textAlign: "center",
-                                padding: "7px 22px 6px 21px",
-                                marginLeft: "50px",
-                              }}
-                            >
-                              Reset
-                            </Button>
-                          </div>
-                        ) : item.status === "Cancel" ? (
-                          <div>
-                            <MdCancel size={40} color="#FF0742" />
-                            <Button
-                              variant="warning"
-                              onClick={() => {
-                                setResetId(item.id);
-                                reset();
-                              }}
-                              style={{
-                                background: "##ffcc00",
-                                color: "white",
-                                textAlign: "center",
-                                padding: "7px 22px 6px 21px",
-                                marginLeft: "50px",
-                              }}
-                            >
-                              Reset
-                            </Button>
-                          </div>
-                        ) : (
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                              marginLeft: "-20px",
-                            }}
-                          >
-                            <Button
-                              variant="none"
-                              onClick={() => {
-                                setCancelId(item.id);
-                                Cancel();
-                              }}
-                              style={{
-                                background: "#FF0742",
-                                color: "white",
-                                textAlign: "center",
-                                padding: "7px 22px 6px 21px",
-                              }}
-                            >
-                              Cancel
-                            </Button>
-                            <div style={{ marginLeft: "22px" }}>
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                          {item.status === "Approved" ? (
+                            <div>
+                              <AiFillCheckCircle size={40} color="#3BB54A" />
                               <Button
-                                variant="none"
+                                variant="warning"
+                                onClick={() => {
+                                  setResetId(item.id);
+                                  reset();
+                                }}
                                 style={{
-                                  background: "#0ACF83",
+                                  background: "##ffcc00",
                                   color: "white",
                                   textAlign: "center",
-                                  padding: "7px 12px 6px 13px",
-                                }}
-                                onClick={() => {
-                                  setApproveId(item.id);
-                                  Approve();
+                                  padding: "7px 22px 6px 21px",
+                                  marginLeft: "50px",
                                 }}
                               >
-                                Approve
+                                Reset
                               </Button>
                             </div>
-                          </div>
-                        )}
+                          ) : item.status === "Cancel" ? (
+                            <div>
+                              <MdCancel size={40} color="#FF0742" />
+                              <Button
+                                variant="warning"
+                                onClick={() => {
+                                  setResetId(item.id);
+                                  reset();
+                                }}
+                                style={{
+                                  background: "##ffcc00",
+                                  color: "white",
+                                  textAlign: "center",
+                                  padding: "7px 22px 6px 21px",
+                                  marginLeft: "50px",
+                                }}
+                              >
+                                Reset
+                              </Button>
+                            </div>
+                          ) : (
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                marginLeft: "-20px",
+                              }}
+                            >
+                              <Button
+                                variant="none"
+                                onClick={() => {
+                                  setCancelId(item.id);
+                                  Cancel();
+                                }}
+                                style={{
+                                  background: "#FF0742",
+                                  color: "white",
+                                  textAlign: "center",
+                                  padding: "7px 22px 6px 21px",
+                                }}
+                              >
+                                Cancel
+                              </Button>
+                              <div style={{ marginLeft: "22px" }}>
+                                <Button
+                                  variant="none"
+                                  style={{
+                                    background: "#0ACF83",
+                                    color: "white",
+                                    textAlign: "center",
+                                    padding: "7px 12px 6px 13px",
+                                  }}
+                                  onClick={() => {
+                                    setApproveId(item.id);
+                                    Approve();
+                                  }}
+                                >
+                                  Approve
+                                </Button>
+                              </div>
+                            </div>
+                          )}
+                          <Button
+                            variant="none"
+                            onClick={() => {
+                              setDeleteId(item.id);
+                              onDelete();
+                            }}
+                            style={{
+                              background: "#FF0742",
+                              color: "white",
+                              padding: "7px 22px 6px 21px",
+                              marginLeft: "30px",
+                            }}
+                          >
+                            <FaTrash />
+                          </Button>
+                        </div>
                       </td>
                     </tr>
                   ))}
