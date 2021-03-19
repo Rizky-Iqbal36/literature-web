@@ -25,43 +25,43 @@ const Signin = (props) => {
   })
 
   const [loginAction, {isLoading,error}] = useMutation (async (values)=>{
+    const config = {
+        headers:{
+            "Content-Type": "application/json",
+        }
+    };
+    const body = JSON.stringify(values);
+    try {
+      const res = await API.post("/login",body,config);
+
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: res.data.data,
+      })
+
+      setAuthToken(res.data.data.token);
       try {
-        const config = {
-            headers:{
-                "Content-Type": "application/json",
-            }
-            };
-
-        const body = JSON.stringify(values);
-
-        const res = await API.post("/login",body,config);
+        const res = await API.get('/auth');
 
         dispatch({
-            type: "LOGIN_SUCCESS",
-            payload: res.data.data,
-          });
-
-        setAuthToken(res.data.data.token);        
-
-        try {
-            const res = await API.get("/auth");
-            dispatch({
-              type: "USER_LOADED",
-              payload: res.data.data.user,
-            });
-        } catch (err) {
-            dispatch({
-              type: "AUTH_ERROR",
-            });
-            console.log(err);
-            setErrorMsg(err.message);
+          type: "USER_LOADED",
+          payload: res.data.data.user,
+        })
+        if (!res.data.data.user.isAdmin){
+          return history.push(`/Home`)          
         }
-
-          history.push("/Home");
+        dispatch({type: "LOGIN_ADMIN"})
+        return history.push(`/HomeAdmin`)
       } catch (err) {
-        console.log(err);
-        setErrorMsg(err.message);
-      }
+        dispatch({
+          type: "AUTH_ERROR",
+        })
+      }      
+    } catch (err) {
+      dispatch({
+        type: "LOGIN_FAIL",
+      })
+    }
   })
     return (
         <Modal
