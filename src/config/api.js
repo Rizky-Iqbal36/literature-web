@@ -1,7 +1,11 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  //dev
+  //baseURL: "http://localhost:5000/api/v1",
+
+  //production
+  baseURL: "https://literature-be.herokuapp.com",
 });
 
 export const setAuthToken = (token) => {
@@ -9,8 +13,16 @@ export const setAuthToken = (token) => {
   else delete API.defaults.headers.common["Authorization"];
 };
 
-export const urlAsset = {
+//dev
+/*export const urlAsset = {
   avatar: "http://localhost:5000/public/avatars/",
   thumbnail: "http://localhost:5000/public/thumbnails/",
   file: "http://localhost:5000/public/files/",
+};*/
+
+//production
+export const urlAsset = {
+  avatar: "https://literature-be.herokuapp.com/public/avatars/",
+  thumbnail: "https://literature-be.herokuapp.com/public/thumbnails/",
+  file: "https://literature-be.herokuapp.com/public/files/",
 };

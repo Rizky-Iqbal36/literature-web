@@ -46,7 +46,7 @@ const Landing = () => {
                 variant="none"
                 style={{
                   marginBottom: "20px",
-                  width: "42.5%",
+                  width: "32.5%",
                   backgroundColor: "#AF2E1C",
                   color: "white",
                 }}
@@ -64,7 +64,7 @@ const Landing = () => {
                 variant="none"
                 style={{
                   marginBottom: "20px",
-                  width: "42.5%",
+                  width: "32.5%",
                   backgroundColor: "white",
                   color: "black",
                   marginLeft: "31px",

@@ -34,7 +34,6 @@ const MyCollection = () => {
           style={{
             color: "white",
             paddingBottom: "90px",
-            marginLeft: "78px",
           }}
         >
           <div

@@ -65,6 +65,7 @@ const Signup = (props) => {
             payload: res.data.data.user,
           });
         } catch (err) {
+          setErrorMsg(err.response.data.message);
           dispatch({
             type: "AUTH_ERROR",
           });
@@ -72,14 +73,14 @@ const Signup = (props) => {
 
         history.push("/Home");
       } catch (err) {
+        setErrorMsg(err.response.data.message);
         dispatch({
           type: "LOGIN_FAIL",
         });
-        setErrorMsg(err.response.data.error.message);
       }
     } catch (err) {
+      setErrorMsg(err.response.data.message);
       console.log(err);
-      setErrorMsg(err.message);
     }
   });
   return (
@@ -91,8 +92,10 @@ const Signup = (props) => {
         centered
         style={{ color: "white" }}
       >
-        {errorMsg ? <Alert variant="danger">{errorMsg || error}</Alert> : null}
         <div style={{ backgroundColor: "#161616" }}>
+          {errorMsg ? (
+            <Alert variant="danger">{errorMsg || error}</Alert>
+          ) : null}
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
               <strong>Sign Up</strong>
@@ -149,7 +152,6 @@ const Signup = (props) => {
                     name="gender"
                     {...getFieldProps("gender")}
                   >
-                    <option>Gender</option>
                     <option>Male</option>
                     <option>Female</option>
                   </Form.Control>
