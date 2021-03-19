@@ -27,7 +27,7 @@ const Signup = (props) => {
       password: Yup.string().required("Password Required").min(8),
       fullname: Yup.string().required().min(3),
       gender: Yup.string().required(),
-      phone: Yup.number().required().min(12),
+      phone: Yup.number().required().min(12, "minimal 12"),
       address: Yup.string().required().min(5),
     }),
     onSubmit: (values) => {

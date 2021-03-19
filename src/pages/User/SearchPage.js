@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button, Dropdown } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import LoadLiterature from "../../components/LoadLiterature";
 import NavbarUser from "../../components/NavbarUser";
+
 const SearchPage = () => {
-  const handleSubmit = () => {
-    console.log("Submit");
-  };
+  const [selected, setSelected] = useState("Anytime");
+  const [title, setTitle] = useState();
+  const year = [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+  ];
+  console.log(title);
   return (
     <div style={{ color: "white", backgroundColor: "#161616" }}>
       <NavbarUser />
+
       <div
         className="container"
         style={{
@@ -19,72 +36,88 @@ const SearchPage = () => {
         }}
       >
         <div className="row">
-          <Form
-            onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "row" }}
-          >
-            <Form.Group>
-              <Form.Control
-                type="text"
-                placeholder="Search for literature"
-                name="title"
-                style={{
-                  color: "white",
-                  backgroundColor: "#454545",
-                  width: "600px",
-                  height: "50px",
-                  borderWidth: "2px",
-                  borderRadius: "5px",
-                }}
-              />
-            </Form.Group>
-            <Button
-              type="submit"
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search for literature"
+              name="title"
               style={{
-                backgroundColor: "#AF2E1C",
+                color: "white",
+                backgroundColor: "#454545",
+                width: "600px",
                 height: "50px",
-                marginLeft: "12px",
+                borderWidth: "2px",
+                borderRadius: "5px",
+              }}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <Button
+            type="submit"
+            style={{
+              backgroundColor: "#AF2E1C",
+              height: "50px",
+              marginLeft: "12px",
+            }}
+          >
+            <BsSearch size={30} />
+          </Button>
+        </div>
+        <div className="row" style={{ marginTop: "51px" }}>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <div className="col-1" style={{ alignContent: "center" }}>
+              <div
+                style={{ marginLeft: "20px", font: "avenir", fontSize: "16px" }}
+              >
+                <h6
+                  style={{
+                    color: "#AF2E1C",
+                  }}
+                >
+                  Anytime
+                </h6>
+              </div>
+              <Dropdown
+                drop="down"
+                onSelect={(e) => {
+                  setSelected(e);
+                }}
+              >
+                <Dropdown.Toggle
+                  variant="danger"
+                  id="dropdown-basic"
+                  style={{
+                    backgroundColor: "#454545",
+                    color: "white",
+                    outline: "none",
+                    borderWidth: "2px",
+                    borderColor: "white",
+                  }}
+                >
+                  {selected}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item eventKey="Anytime">Anytime</Dropdown.Item>
+                  {year.map((year, index) => {
+                    return (
+                      <Dropdown.Item eventKey={year} key={index} as={Button}>
+                        {year}
+                      </Dropdown.Item>
+                    );
+                  })}
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+            <div
+              className="col-11"
+              style={{
+                marginTop: "-80px",
+                marginLeft: "72px",
               }}
             >
-              <BsSearch size={30} />
-            </Button>
-          </Form>
-        </div>
-        <div className="row" style={{ marginLeft: "-30px", marginTop: "51px" }}>
-          <div className="col-2" style={{ alignContent: "center" }}>
-            <div
-              style={{ marginLeft: "20px", font: "avenir", fontSize: "16px" }}
-            >
-              <h6
-                style={{
-                  color: "#AF2E1C",
-                }}
-              >
-                Anytime
-              </h6>
+              <LoadLiterature route="HOME" selected={selected} title={title} />
             </div>
-            <Dropdown drop="bottom">
-              <Dropdown.Toggle
-                variant="danger"
-                id="dropdown-basic"
-                style={{
-                  backgroundColor: "#454545",
-                  color: "white",
-                  outline: "none",
-                  borderWidth: "2px",
-                  borderColor: "white",
-                }}
-              >
-                Since 2020
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item eventKey="All">Since 2020</Dropdown.Item>
-                <Dropdown.Item eventKey="View">View</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
-          <div className="col-10" style={{ marginTop: "-80px" }}>
-            <LoadLiterature route="HOME" />
           </div>
         </div>
       </div>

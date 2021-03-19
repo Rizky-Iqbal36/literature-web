@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
+import { useQuery } from "react-query";
 import { Context } from "../../context/Context";
 import { Col, Button } from "react-bootstrap";
 import Profile_addPP from "../../components/Profile_addPP";
 import LoadLiterature from "../../components/LoadLiterature";
-import { urlAsset } from "../../config/api";
+import { urlAsset, API } from "../../config/api";
 import BG from "../../asset/BG_Profile.png";
 import { MdEmail, MdPlace } from "react-icons/md";
 import { FaTransgender, FaPhoneAlt } from "react-icons/fa";
@@ -13,9 +14,13 @@ const Profile = () => {
   const [state] = useContext(Context);
   const [modalShow, setModalShow] = React.useState(false);
 
+  const { isLoading, error, data: User, refetch } = useQuery(
+    "loadProfile",
+    () => API.get(`/user/${state.user.id}`)
+  );
   return (
     <>
-      {state.user === undefined ? (
+      {state.user === undefined || isLoading ? (
         <h1 style={{ color: "white" }}>NOW LOADING...</h1>
       ) : (
         <div>
@@ -129,9 +134,9 @@ const Profile = () => {
                         alt="avatar"
                         className="figure-img img-fluid rounded"
                         src={
-                          state.user.avatar === null
+                          state.user?.avatar === null
                             ? require("../../asset/default.png")
-                            : urlAsset.avatar + state.user?.avatar
+                            : urlAsset.avatar + User.data.data.loadUser?.avatar
                         }
                         style={{
                           width: 226,
@@ -161,6 +166,7 @@ const Profile = () => {
                           Change Photo Profile
                         </Button>
                         <Profile_addPP
+                          refetch={() => refetch()}
                           show={modalShow}
                           onHide={() => setModalShow(false)}
                         />
@@ -169,21 +175,21 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <div
-                  style={{
-                    fontFamily: "times news roman",
-                    marginBottom: "41px",
-                    fontSize: "36px",
-                    fontWeight: "bold",
-                    marginLeft: "-15px",
-                  }}
-                >
-                  My Literature
-                </div>
-                <div>
-                  <LoadLiterature route="PROFILE" />
-                </div>
+              <div
+                className="row"
+                style={{
+                  fontFamily: "times news roman",
+                  marginBottom: "41px",
+                  fontSize: "36px",
+                  fontWeight: "bold",
+                  marginLeft: "-15px",
+                }}
+              >
+                {" "}
+                My Literature
+              </div>
+              <div className="row">
+                <LoadLiterature route="PROFILE" />
               </div>
             </div>
           </div>

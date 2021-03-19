@@ -13,26 +13,17 @@ const Landing = () => {
     <div
       style={{ color: "white", marginTop: "-28px", backgroundColor: "#161616" }}
     >
-      <div style={{ margin: "28px 0px 0px 78px" }}>
-        <img className="responsive-img" src={Icon} alt="Logo" />
-      </div>
-      <div className="body" style={{ padding: "20px 122px 0px 78px" }}>
-        <div
-          style={{
-            padding: "0px 122px 100px 0px",
-            backgroundImage: "url(" + Background + ")",
-            backgroundPosition: "right",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <div style={{ paddingBottom: "93px" }}>
+      <div className="container-fluid" style={{ paddingBottom: "42.5px" }}>
+        <div className="row" style={{ padding: "29px 0px 110px 78px" }}>
+          <img className="responsive-img" src={Icon} alt="Logo" />
+        </div>
+        <div className="row">
+          <div className="col" style={{ marginLeft: "58px" }}>
             <h1
               style={{
                 fontFamily: "Time New Rowman",
                 fontSize: "96px",
                 fontWeight: "700",
-                paddingTop: "100px",
-                paddingBottom: "35px",
               }}
             >
               source <em>of</em>
@@ -55,8 +46,8 @@ const Landing = () => {
                 variant="none"
                 style={{
                   marginBottom: "20px",
-                  width: "18%",
-                  backgroundColor: "#ee4622",
+                  width: "42.5%",
+                  backgroundColor: "#AF2E1C",
                   color: "white",
                 }}
                 onClick={() => setModalShowsignup(true)}
@@ -73,7 +64,7 @@ const Landing = () => {
                 variant="none"
                 style={{
                   marginBottom: "20px",
-                  width: "18%",
+                  width: "42.5%",
                   backgroundColor: "white",
                   color: "black",
                   marginLeft: "31px",
@@ -88,6 +79,12 @@ const Landing = () => {
                 onHide={() => setModalShowsignin(false)}
               />
             </section>
+          </div>
+          <div
+            className="col"
+            style={{ marginTop: "-130px", marginRight: "50px" }}
+          >
+            <img src={Background} />
           </div>
         </div>
       </div>
